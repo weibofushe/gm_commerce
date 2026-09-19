@@ -48,6 +48,7 @@ section {
 
 .subtitle {
     color: black;
+    font-size: 2rem;
     margin: 1rem 0;
     padding: 0 1rem;
     background-color: white;
@@ -59,14 +60,16 @@ section {
     background-color: rgb(255, 255, 255, 0.7);
     border-radius: 10px;
     /* padding: 20vw; */
-    margin: 5rem;
-    padding: 1rem 0 5rem 0;
+    margin: clamp(0.5rem, 5vw, 5rem);
+    padding: 1rem 0 clamp(1.5rem, 5vw, 5rem) 0;
 }
 
 .imgRow {
-    display: flex;
-    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 15rem));
     justify-content: center;
+    gap: 0.75rem;
+    padding: 0 0.75rem;
 }
 
 #physgun, #toolgun {
@@ -84,7 +87,8 @@ section {
 }
 
 .deals img {
-    width: clamp(8rem, 20vw, 15rem);
+    display: block;
+    width: 100%;
     aspect-ratio: 1 / 1;
     height: auto;
     object-fit: cover;
@@ -95,20 +99,27 @@ s {
 }
 
 .deals {
-    max-width: 100%;
-    height: auto;
     text-align: center;
-    margin: 1vw;
+    padding-bottom: 0.75rem;
     background-color: white;
     border: 2px solid rgb(61, 93, 255);
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
     border-radius: 20px;
     transition: transform 0.5s ease;
-    transform: translate(0, 0); 
+    transform: translate(0, 0);
 }
 
-.deals:hover {
-    transform: translateY(-16px);
+.deals h3,
+.deals p {
+    font-size: clamp(1rem, 4.4vw, 1.5rem);
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+@media (hover: hover) {
+    .deals:hover {
+        transform: translateY(-16px);
+    }
 }
 
 /* #physgun:hover, #crowbar:hover, #toolgun:hover {
@@ -125,14 +136,36 @@ s {
     padding: 20vw;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 960px) {
     .imgRow {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(4, minmax(0, 15rem));
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #sectbg::before {
+        filter: blur(4px);
+    }
+
+    #sect1 {
+        margin: 0.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #physgun, #toolgun, #crowbar, #missingTextures {
+        animation: none;
+        will-change: auto;
     }
 
     .deals {
-        width: 100%;
-        max-width: 22rem;
+        transition: none;
+    }
+
+    #navMenu a,
+    #navMenu li a::after {
+        transition: none;
     }
 }
