@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    cursor: url('../img/physgun2.png') 45 33, auto;
+    font-family: 'coolvetica', Courier, monospace;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'coolvetica';
+    src: url('../font/coolvetica.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'coolvetica-cond';
+    src: url('../font/coolvetica-cond.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* HEADER & NAV */
+
+header {
+    /* border-bottom: 2px solid white; */
+    background-color: rgb(61, 93, 255);
+    color: white;
+    user-select: none;
+    z-index: 101;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+#title {
+    font-size: 3rem;
+    position: relative;
+    text-shadow: 2px 2px black;
+    padding-bottom: 1vh;
+    margin-left: 1vw;
+}
+
+#title a {
+    text-decoration: none;
+    color: white;
+}
+
+.item {
+    display: inline-block;
+    padding-right: 1.5rem;
+}
+
+#navMenu {
+    text-align: right;
+    list-style: none;
+}
+
+#navMenu a {
+    /* border: 3px dashed black; */
+    user-select: none;
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px black;
+    transition:
+        letter-spacing 800ms ease,
+        opacity 400ms ease,
+        transform 300ms ease;
+}
+
+#navMenu li a:hover {
+    transform: translateY(-1px);
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+}
+
+#navMenu li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    transition: width 0.5s ease;
+}
+
+#navMenu li a:hover::after {
+    width: 100%;
+}
+
+/* #subNav {
+    z-index: 99;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid white;
+    background-color: rgb(61, 93, 255);
+}
+
+#subNav a {
+    user-select: none;
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    border: 1px solid black;
+}
+
+#subNav a:hover {
+    color: black;
+    background-color: wheat;
+    text-shadow: none;
+} */
+
+footer {
+    position: relative;
+    text-align: center;
+    /* border-top: 2px solid white; */
+    padding: 1rem;
+    color: white;
+    text-shadow: 2px 2px black;
+    background-color: rgb(61, 93, 255);;
+    z-index: 101;
+}
+
+#privacyPolicy {
+    color: lightblue;
+}
+
+#privacyPolicy:hover {
+    color: darkblue;
+    text-shadow: none;
+}

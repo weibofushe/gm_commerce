@@ -1,0 +1,138 @@
+@keyframes float1 {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-16px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes float2 {
+    0%   { transform: translateY(-16px); }
+    50%  { transform: translateY(0); }
+    100% { transform: translateY(-16px); }
+}
+
+section {
+    border: 2px solid rgb(61, 93, 255);
+}
+
+#sectbg {
+    position: relative;
+    isolation: isolate;
+}
+
+#sectbg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        /* linear-gradient(
+            180deg,
+            rgba(141,141,141,0.6) 0%,
+            rgba(0,0,0) 92.5%
+        ), */
+        url('../img/gm_construct.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(8px);
+    transform: scale(1.1);
+}
+
+#sectbg > * {
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle {
+    color: black;
+    margin: 1rem 0;
+    padding: 0 1rem;
+    background-color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+#sect1 {
+    position: relative;
+    background-color: rgb(255, 255, 255, 0.7);
+    border-radius: 10px;
+    /* padding: 20vw; */
+    margin: 5rem;
+    padding: 1rem 0 5rem 0;
+}
+
+.imgRow {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#physgun, #toolgun {
+    object-fit: cover;
+    animation: float1 3s ease-in-out infinite;
+}
+
+#crowbar, #missingTextures {
+    object-fit: cover;
+    animation: float2 3s ease-in-out infinite;
+}
+
+#physgun, #toolgun, #crowbar, #missingTextures {
+    will-change: transform;
+}
+
+.deals img {
+    width: clamp(8rem, 20vw, 15rem);
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+}
+
+s {
+    color: darkred;
+}
+
+.deals {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 1vw;
+    background-color: white;
+    border: 2px solid rgb(61, 93, 255);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+    transform: translate(0, 0); 
+}
+
+.deals:hover {
+    transform: translateY(-16px);
+}
+
+/* #physgun:hover, #crowbar:hover, #toolgun:hover {
+    animation-duration: 1s;
+} */
+
+#sect2 {
+    border: 3px dashed black;
+    padding: 20vw;
+}
+
+#sect3 {
+    border: 3px dashed black;
+    padding: 20vw;
+}
+
+@media (max-width: 768px) {
+    .imgRow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .deals {
+        width: 100%;
+        max-width: 22rem;
+    }
+}
