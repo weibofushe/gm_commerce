@@ -103,7 +103,7 @@ header nav {
     font-size: 1.2rem;
     text-shadow: 2px 2px black;
     transition:
-        letter-spacing 800ms ease,
+        letter-spacing 400ms ease,
         opacity 400ms ease,
         transform 300ms ease;
 }
@@ -116,7 +116,7 @@ header nav {
     width: 0%;
     height: 2px;
     background-color: white;
-    transition: width 0.5s ease;
+    transition: width 0.1s ease;
 }
 
 @media (hover: hover) {
